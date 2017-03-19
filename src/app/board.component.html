@@ -1,0 +1,13 @@
+<h1>Conway Angular</h1>
+<table id="board">
+	<tr *ngFor="let row of getCurrentGrid(); let parentIndex = index">
+		<td *ngFor="let cell of row; let childIndex = index"
+			(click)="toggleFlag(parentIndex, childIndex)"
+			class="{{cellClass(parentIndex, childIndex)}}"><span
+			[hidden]="!cell">X</span></td>
+	</tr>
+</table>
+
+<button class="start button" (click)="startGame()">Start Game</button>
+<button class="stop button" (click)="stopGame()">Stop Game</button>
+<br/>{{message}}

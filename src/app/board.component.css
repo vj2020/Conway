@@ -1,0 +1,51 @@
+h1 {
+	display: block;
+	font-size: 2em;
+	margin-top: 0.67em;
+	margin-bottom: 0.67em;
+	margin-left: 0;
+	margin-right: 0;
+	font-weight: bold;
+}
+
+.button {
+	border: none;
+	color: white;
+	padding: 5px 10px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 12px;
+	margin: 4px 2px;
+	cursor: pointer;
+	-webkit-transition-duration: 0.4s; /* Safari */
+	transition-duration: 0.4s;
+	border-radius: 12px;
+}
+
+.start {
+	background-color: #4ca;
+}
+
+.stop {
+	background-color: #f44;
+}
+
+table#board td {
+	width: 1.5em;
+	height: 1.5em;
+	text-align: center;
+	vertical-align: middle;
+	border: solid 1px #ddd;
+	border-collapse: separate;
+	border-spacing: 2px;
+	border-color: gray;
+}
+
+table#board td.reborn {
+	background-color: #efe;
+}
+
+table#board td.die {
+	background-color: #fee;
+}
