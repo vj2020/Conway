@@ -8,6 +8,30 @@ h1 {
 	font-weight: bold;
 }
 
+.input {
+	width: 50px;
+	padding: 2px 10px;
+	margin: 2px 0;
+	box-sizing: border-box;
+	border: 3px solid #ccc;
+	-webkit-transition: 0.5s;
+	transition: 0.5s;
+	outline: none;
+}
+
+.alert {
+	border-color: #ebccd1;
+	color: #a94442;
+	border-radius: 4px;
+	margin-bottom: 5px;
+	padding: 5px;
+	box-sizing: border-box;
+}
+
+.err {
+	border: 2px solid red;
+}
+
 .button {
 	border: none;
 	color: white;

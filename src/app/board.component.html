@@ -1,4 +1,10 @@
 <h1>Conway Angular</h1>
+<div class="alert">{{errorMessage}} </div>
+Rows
+<input #rows (keyup)="updateGrid(rows.value, cols.value)" value="6" class="input {{errClass}}">
+Cols
+<input #cols (keyup)="updateGrid(rows.value, cols.value)" value="8" class="input {{errClass}}">
+<br />
 <table id="board">
 	<tr *ngFor="let row of getCurrentGrid(); let parentIndex = index">
 		<td *ngFor="let cell of row; let childIndex = index"
@@ -10,4 +16,5 @@
 
 <button class="start button" (click)="startGame()">Start Game</button>
 <button class="stop button" (click)="stopGame()">Stop Game</button>
-<br/>{{message}}
+<br />
+{{message}}

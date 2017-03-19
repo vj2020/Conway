@@ -13,9 +13,11 @@ import { BoardService } from './board.service';
 })
 export class BoardComponent {
   intervalId = null;
-  message = "";
+  message;
+  errorMessage;
+  errClass;
   constructor(private boardService: BoardService) {
-    this.boardService.initialize(8, 6);
+    this.boardService.initialize(6, 8);
   };
 
   toggleFlag(row, cell) {
@@ -42,7 +44,7 @@ export class BoardComponent {
       }
     }, 1000);
   };
-  
+
   getCurrentGrid() {
     return this.boardService.grid;
   };
@@ -50,5 +52,16 @@ export class BoardComponent {
   stopGame() {
     clearInterval(this.intervalId);
   };
+
+  updateGrid(rows, cols) {
+    this.errClass = "";
+    this.errorMessage = ""
+    if (rows > 0 && rows <= 100 && cols > 0 && cols <= 100) {
+      this.boardService.initialize(rows, cols);
+    } else {
+      this.errClass = "err";
+      this.errorMessage = "Please enter value between 1 to 100."
+    }
+  }
 
 }
