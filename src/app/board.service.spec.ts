@@ -16,7 +16,7 @@ describe('BoardService Test', () => {
     });
   }));
 
-  it('Should return false after initilize', async(() => {
+  it('Should initilize with default value', async(() => {
     for (let r = 0; r < service.grid.length; r++) {
       for (let c = 0; c < service.grid[r].length; c++) {
         expect(service.getCellValue(r, c)).toBe(false);
@@ -105,15 +105,15 @@ describe('BoardService Test', () => {
     updatedState[3][6] = true;
     updatedState[1][1] = false;
     expect(service.isStateMatch(updatedState, updatedState)).toBe(true);
-    
+
     expect(service.isStateMatch(service.grid, updatedState)).toBe(true);
-    
+
     const updatedState2 = service.grid;
     updatedState2[3][6] = false;
     updatedState2[4][6] = false;
     service.runOnce();
     expect(service.isStateMatch(service.grid, updatedState2)).toBe(false);
-  
+
   }));
 
 

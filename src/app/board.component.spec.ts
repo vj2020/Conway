@@ -17,7 +17,7 @@ describe('BoardComponent Test', () => {
     expect(app).toBeTruthy();
   }));
 
-  it('Should render with title in a h1 tag', async(() => {
+  it('Should render application with all components', async(() => {
     const fixture = TestBed.createComponent(BoardComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
