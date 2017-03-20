@@ -16,6 +16,7 @@ export class BoardComponent {
   message;
   errorMessage;
   errClass;
+  gameStarted = false;
   constructor(private boardService: BoardService) {
     this.boardService.initialize(6, 8);
   };
@@ -35,14 +36,18 @@ export class BoardComponent {
   };
 
   startGame() {
-    this.intervalId = setInterval(() => {
-      const previousGrid = this.boardService.grid;
-      const currentGrid = this.boardService.runOnce();
-      if (this.boardService.isStateMatch(previousGrid, currentGrid)) {
-        this.message = "Still lifes. Game Stopped";
-        clearInterval(this.intervalId);
-      }
-    }, 1000);
+    if (!this.gameStarted) {
+      this.gameStarted = true;
+      this.intervalId = setInterval(() => {
+        const previousGrid = this.boardService.grid;
+        const currentGrid = this.boardService.runOnce();
+        if (this.boardService.isStateMatch(previousGrid, currentGrid)) {
+          this.message = "Still lifes. Game Stopped";
+          clearInterval(this.intervalId);
+          this.gameStarted = false;
+        }
+      }, 1000);
+    }
   };
 
   getCurrentGrid() {
@@ -51,6 +56,7 @@ export class BoardComponent {
 
   stopGame() {
     clearInterval(this.intervalId);
+    this.gameStarted = false;
   };
 
   updateGrid(rows, cols) {
